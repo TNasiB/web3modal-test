@@ -5,12 +5,11 @@
 </template>
 
 <script setup>
-import { onMounted } from "vue";
 import web3modal from "./web3-modal";
 
-const openModal = () => setTimeout(() => web3modal.openModal(), 1000);
-
-onMounted(() => openModal());
+const openModal = () => {
+  web3modal.openModal();
+};
 </script>
 
 <style lang="scss" scoped></style>

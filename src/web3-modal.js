@@ -16,6 +16,9 @@ const chains = [goerli, mainnet];
 const { provider } = configureChains(chains, [
   walletConnectProvider({ projectId: "d98a03f456c58683ab6c8a517fa353bf" }),
 ]);
+
+console.log("provider", provider);
+
 const wagmiClient = createClient({
   autoConnect: true,
   connectors: modalConnectors({ appName: "wonderplace_test", chains }),
@@ -25,7 +28,15 @@ const wagmiClient = createClient({
 // Web3Modal and Ethereum Client
 const ethereumClient = new EthereumClient(wagmiClient, chains);
 
-export default new Web3Modal(
+const web3modal = new Web3Modal(
   { projectId: "d98a03f456c58683ab6c8a517fa353bf" },
   ethereumClient
 );
+
+web3modal.subscribeModal(({ open }) => {
+  const storedAuthInfo = localStorage.getItem("wagmi.store");
+  const parsedAuthInfo = JSON.parse(storedAuthInfo);
+  alert(parsedAuthInfo.state.data.account);
+});
+
+export default web3modal;
