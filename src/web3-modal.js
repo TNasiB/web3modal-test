@@ -1,42 +1,79 @@
-import { configureChains, createClient } from "@wagmi/core";
+// // import { configureChains, createClient } from "@wagmi/core";
 
-import { mainnet, goerli } from "@wagmi/core/chains";
+// // import { mainnet, goerli } from "@wagmi/core/chains";
 
-import { Web3Modal } from "@web3modal/html";
+// // import { Web3Modal } from "@web3modal/html";
 
-import {
-  EthereumClient,
-  modalConnectors,
-  walletConnectProvider,
-} from "@web3modal/ethereum";
+// // import {
+// //   EthereumClient,
+// //   modalConnectors,
+// //   walletConnectProvider,
+// // } from "@web3modal/ethereum";
 
-const chains = [goerli, mainnet];
+// // const chains = [goerli, mainnet];
 
-// Wagmi Core Client
-const { provider } = configureChains(chains, [
-  walletConnectProvider({ projectId: "d98a03f456c58683ab6c8a517fa353bf" }),
-]);
+// // // Wagmi Core Client
+// // const { provider } = configureChains(chains, [
+// //   walletConnectProvider({ projectId: "d98a03f456c58683ab6c8a517fa353bf" }),
+// //   publicProvider,
+// // ]);
 
-console.log("provider", provider);
+// // const wagmiClient = createClient({
+// //   autoConnect: true,
+// //   connectors: modalConnectors({ appName: "wonderplace_test", chains }),
+// //   provider,
+// // });
 
-const wagmiClient = createClient({
-  autoConnect: true,
-  connectors: modalConnectors({ appName: "wonderplace_test", chains }),
-  provider,
-});
+// // // Web3Modal and Ethereum Client
+// // const ethereumClient = new EthereumClient(wagmiClient, chains);
 
-// Web3Modal and Ethereum Client
-const ethereumClient = new EthereumClient(wagmiClient, chains);
+// // const web3modal = new Web3Modal(
+// //   { projectId: "d98a03f456c58683ab6c8a517fa353bf" },
+// //   ethereumClient
+// // );
 
-const web3modal = new Web3Modal(
-  { projectId: "d98a03f456c58683ab6c8a517fa353bf" },
-  ethereumClient
-);
+// // web3modal.subscribeModal(({ open }) => {
+// //   const storedAuthInfo = localStorage.getItem("wagmi.store");
+// //   const parsedAuthInfo = JSON.parse(storedAuthInfo);
+// //   alert(parsedAuthInfo.state.data.account);
+// // });
 
-web3modal.subscribeModal(({ open }) => {
-  const storedAuthInfo = localStorage.getItem("wagmi.store");
-  const parsedAuthInfo = JSON.parse(storedAuthInfo);
-  alert(parsedAuthInfo.state.data.account);
-});
+// // export default web3modal;
+// import { SafeConnector } from "@gnosis.pm/safe-apps-wagmi";
+// import { configureChains, createClient } from "@wagmi/core";
+// import { goerli, mainnet } from "@wagmi/core/chains";
+// import {
+//   EthereumClient,
+//   modalConnectors,
+//   walletConnectProvider,
+// } from "@web3modal/ethereum";
+// import { Web3Modal } from "@web3modal/html";
 
-export default web3modal;
+// // 1. Define constants
+// const projectId = "8e6b5ffdcbc9794bf9f4a1952578365b";
+// const chains = [mainnet, goerli];
+
+// // 2. Configure wagmi client
+// const { provider } = configureChains(chains, [walletConnectProvider({ projectId })]);
+// const wagmiClient = createClient({
+//   autoConnect: true,
+//   connectors: [
+//     ...modalConnectors({ appName: "web3Modal", chains }),
+//     new SafeConnector({ chains }),
+//   ],
+//   provider,
+// });
+
+// // 3. Create ethereum and modal clients
+// const ethereumClient = new EthereumClient(wagmiClient, chains);
+// export const web3Modal = new Web3Modal(
+//   {
+//     projectId,
+//     walletImages: {
+//       safe: "https://pbs.twimg.com/profile_images/1566773491764023297/IvmCdGnM_400x400.jpg",
+//     },
+//   },
+//   ethereumClient
+// );
+
+// export { wagmiClient };

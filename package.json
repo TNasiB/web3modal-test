@@ -9,11 +9,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@gnosis.pm/safe-apps-wagmi": "^1.2.0",
     "@wagmi/core": "^0.8.5",
+    "@walletconnect/web3-provider": "^1.8.0",
+    "@walletconnect/web3wallet": "^1.0.0",
     "@web3modal/ethereum": "^2.0.0-beta.10",
     "@web3modal/html": "^2.0.0-beta.10",
     "ethers": "^5.7.2",
-    "vue": "^3.2.45"
+    "vue": "^3.2.45",
+    "web3": "^1.8.1"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",
