@@ -9,7 +9,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@gnosis.pm/safe-apps-wagmi": "^1.2.0",
     "@wagmi/core": "^0.8.5",
     "@walletconnect/web3-provider": "^1.8.0",
     "@walletconnect/web3wallet": "^1.0.0",
